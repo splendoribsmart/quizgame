@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Level Detail - Level {{ level.number }}</h1>
+  <h2>Subject: {{ level.subject.name }}</h2>
+  <h3>Quizzes:</h3>
+  <ul>
+    {% for quiz in quizzes %}
+      <li><a href="{% url 'quiz' quiz.id %}">{{ quiz.title }}</a></li>
+    {% empty %}
+      <li>No quizzes available for this level.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

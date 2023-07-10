@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Level Selection</h1>
+  <h2>Subject: {{ subject.name }}</h2>
+  <ul>
+    {% for level in levels %}
+      <li><a href="{% url 'level_detail' level.id %}">Level {{ level.number }}</a></li>
+    {% empty %}
+      <li>No levels available for this subject.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
